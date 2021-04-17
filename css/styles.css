@@ -6,18 +6,16 @@
   --primary-black-color: #000000;
   --primary-white-color: #ffffff;
   --address-footer-color: #ffffff99;
+  --form-border-color: #ffffff4d;
   --bcg-color: #2f303a;
   --bcg-color-hero: #c4c4c4;
   --bcg-color-grey: #f5f4fa;
   --border-line-header: #ececec;
   --border-line-card: #eeeeee;
   --social-link-color: #afb1b8;
+  --modal-form-border: #21212133;
+  --modal-form-placeholder: #75757580;
 }
-
-/* font-family: 'Raleway', sans-serif;
-font-family: 'Roboto', sans-serif; */
-
-/* outline: 5px solid tomato; */
 
 /* Стили для всего сайта */
 body {
@@ -221,69 +219,16 @@ p {
   letter-spacing: 0.06em;
   color: var(--primary-white-color);
   background-color: var(--accent-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-primary:hover,
 .button-primary:focus {
   background-color: var(--hover-color-button);
-}
-
-/* Модальное окно при нажатии на кнопку */
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  opacity: 1;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  width: 528px;
-  height: 581px;
-  background-color: var(--primary-white-color);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.button-close {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 8px;
-  right: 8px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: var(--primary-white-color);
-}
-
-.button-close .icon {
-  width: 18px;
-  height: 18px;
-  fill: var(--primary-black-color);
-}
-
-.backdrop.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(0.5);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* ОСОБЕННОСТИ */
@@ -511,6 +456,15 @@ p {
 
 .footer-main {
   display: flex;
+  justify-content: space-between;
+}
+
+.footer-main div {
+  flex-basis: calc((50% - 45px) / 2);
+}
+
+.footer-main div:last-child {
+  flex-basis: calc(50% - 15px);
 }
 
 /* Лого, меняем цвет studio */
@@ -538,10 +492,6 @@ p {
   color: var(--accent-color);
 }
 
-.footer-left {
-  margin-right: 70px;
-}
-
 /* Футер, часть по центру */
 
 .caption {
@@ -559,6 +509,51 @@ p {
 
 .social-icons-link {
   background-color: #ffffff1a;
+}
+
+/* Футер, правая часть */
+.footer-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-mail {
+  padding: 15px 16px;
+  font-size: 16px;
+  line-height: 1.25;
+  background-color: transparent;
+  width: 358px;
+  height: 50px;
+  border: 1px solid var(--form-border-color);
+  border-radius: 4px;
+}
+
+.footer-mail::placeholder {
+  color: var(--address-footer-color);
+}
+
+.footer-button {
+  position: relative;
+}
+
+.footer-right .button-primary {
+  padding-right: 62px;
+  margin-right: 0;
+}
+
+.footer-right .button-primary:hover,
+.footer-right .button-primary:focus {
+  background-color: var(--accent-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.footer-form .icon {
+  position: absolute;
+  top: 13px;
+  right: 28px;
+  width: 24px;
+  height: 24px;
+  fill: var(--primary-white-color);
 }
 
 /* ПОРТФОЛИО */
@@ -672,4 +667,179 @@ p {
 .card-item:hover .card-overlay,
 .card-item:focus .card-overlay {
   transform: translateY(0%);
+}
+
+/* Модальное окно при нажатии на кнопку в Герое */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 528px;
+  height: 581px;
+  background-color: var(--primary-white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button-close {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-white-color);
+}
+
+.button-close .icon {
+  width: 18px;
+  height: 18px;
+  fill: var(--primary-black-color);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
+.modal h2 {
+  margin-top: 40px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  color: var(--title-text-color);
+}
+
+/* Form */
+.form {
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+.form-field {
+  position: relative;
+  display: block;
+  margin-bottom: 28px;
+  cursor: pointer;
+}
+
+.form-label {
+  position: absolute;
+  top: -18px;
+  left: 0;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+}
+
+.form-input {
+  padding-left: 42px;
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--modal-form-border);
+  border-radius: 4px;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-field .icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  width: 18px;
+  height: 18px;
+  fill: var(--title-text-color);
+  transform: translateY(-50%);
+}
+
+.form-field:focus-within > .icon {
+  fill: var(--accent-color);
+}
+
+.form-field:focus-within > .form-input {
+  outline: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--accent-color);
+}
+
+/* Textarea */
+.textarea {
+  margin-bottom: 20px;
+}
+
+.form-textarea {
+  padding: 12px 16px;
+  resize: none;
+  width: 100%;
+  border: 1px solid var(--modal-form-border);
+  border-radius: 4px;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-textarea::placeholder {
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+  color: var(--modal-form-placeholder);
+}
+
+.textarea:focus-within > .form-textarea {
+  outline: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--accent-color);
+}
+
+/* Checkbox */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.checkbox-icon {
+  display: inline-block;
+  margin-right: 7px;
+  width: 16px;
+  height: 15px;
+  border: 1px solid var(--primary-black-color);
+  border-radius: 2px;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.checkbox:checked + .checkbox-icon {
+  background-color: var(--accent-color);
+  background-image: url('/images/icons/icon-check.svg');
+  background-size: contain;
+  background-origin: border-box;
+  border-color: var(--accent-color);
+}
+
+.checkbox:focus + .checkbox-icon {
+  border: 1px solid var(--accent-color);
+}
+
+.checkbox-text a {
+  text-decoration: underline;
+  color: var(--accent-color);
 }

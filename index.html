@@ -381,6 +381,18 @@
               </li>
             </ul>
           </div>
+          <div class="footer-right">
+            <b class="caption">подпишитесь на рассылку</b>
+            <form class="footer-form">
+              <input type="email" class="footer-mail" name="user-mail" placeholder="E-mail" />
+              <div class="footer-button">
+                <button type="submit" class="button-primary">Подписаться</button>
+                <svg class="icon">
+                  <use href="./images/icons/sprite.svg#icon-send"></use>
+                </svg>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </footer>
@@ -392,6 +404,46 @@
             <use href="./images/icons/sprite.svg#icon-close"></use>
           </svg>
         </button>
+        <h2>Оставьте свои данные, мы вам перезвоним</h2>
+        <form class="form">
+          <label class="form-field">
+            <input type="text" class="form-input" name="user-name" />
+            <span class="form-label">Имя</span>
+            <svg class="icon">
+              <use href="./images/icons/sprite.svg#icon-person-modal"></use>
+            </svg>
+          </label>
+          <label class="form-field">
+            <input type="tel" class="form-input" name="user-tel" />
+            <span class="form-label">Телефон</span>
+            <svg class="icon">
+              <use href="./images/icons/sprite.svg#icon-tel-modal"></use>
+            </svg>
+          </label>
+          <label class="form-field">
+            <input type="email" class="form-input" name="user-mail" />
+            <span class="form-label">Почта</span>
+            <svg class="icon">
+              <use href="./images/icons/sprite.svg#icon-mail-modal"></use>
+            </svg>
+          </label>
+
+          <label class="form-field textarea">
+            <textarea name="user-comment" class="form-textarea" rows="6" placeholder="Введите текст"></textarea>
+            <span class="form-label">Комментарий</span>
+          </label>
+
+          <label class="checkbox-label">
+            <input class="checkbox visually-hidden" type="checkbox" name="confirm" />
+            <span class="checkbox-icon"></span>
+            <span class="checkbox-text">
+              Соглашаюсь с рассылкой и принимаю
+              <a href="" class="link"> Условия договора</a>
+            </span>
+          </label>
+
+          <button type="submit" class="button-primary">Отправить</button>
+        </form>
       </div>
     </div>
 
